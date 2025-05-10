@@ -1,0 +1,14 @@
+function introStory(){
+    console.log("It's been 1,000 years since the land of Symsterim fell. Only a few cities that held artifacts from an ancient civilation were the only areas spared. The sun has stopped shining, leaving only the moon to illuminate the world that is left.\n You are Sindra, one of the warriors of the city of Sakura. Your armor is made from the beasts that prowl beyond the protective radius of the Ring of Hoba. This ring is worn by Queen Naomi at all times. Your sword is a long sword that contains a green orb in its hilt, granting you the power of the wind in each strike.\nLately, it seems as though the power of the Ring of Hoba is fading. The shadowy beasts have left their tracks closer than they've ever been. The queen has asked you to seek help from the nearby city of Medai.")
+    
+}
+
+function notes(){
+    //The setting is in an alternate universe Japan that was fused with our own Japan. Each artifact was a rare or unique item from our Earth. The final artifact is a clock from our world that transports you back in time. Once there, you find the cause of all the trouble. A "cursed" swordmaker accidentally made a sword so sharp that it cut through into a chaotic alternate reality set in the far future. Robots are sentient beings that have decided to eliminate all organic life. They are shadowy beasts because they weren't meant to be in this universe.
+}
+
+function ringOfHoba(){
+    //This ring is made from the Hoba meteorite and a pure diamond that is unknown. This inspired the jewelled weapons that contain elements of the orbs that are in the weapons and armor.
+}
+
+introStory();
