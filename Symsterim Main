@@ -2,34 +2,95 @@ function introStory(){
     console.log("It's been 1,000 years since the land of Symsterim fell. Only a few cities that held artifacts from an ancient civilation were the only areas spared. The sun has stopped shining, leaving only the moon to illuminate the world that is left.\n You are Sindra, one of the warriors of the city of Sakura. Your armor is made from the beasts that prowl beyond the protective radius of the Ring of Hoba. This ring is worn by Queen Naomi at all times. Your sword is a long sword that contains a green orb in its hilt, granting you the power of the wind in each strike.\nLately, it seems as though the power of the Ring of Hoba is fading. The shadowy beasts have left their tracks closer than they've ever been. The queen has asked you to seek help from the nearby city of Medai. As you head to the Northern border of Sakura, you see one of the shadow monsters staring at you. \nThis is where your journey begins. With one deep breath, you draw your sword and step out of the protection of the barrier,")
 }
 
-//SIMPLE ATTACK AND CRITICAL GENERATOR
+//PLAYER STATS
+playerHealth = 100
 
-function getRanAttack(min, max) {
+function ranPlayerAttack(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min); 
 }
-let ranAttack = getRanAttack(4, 10)
 
-function getRanCrit(min, max) {
+let getPlayerAttack = ranPlayerAttack(5, 10)
+
+function ranPlayerCrit(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min); 
 }
-let ranAttack = getRanAttack(1,5)
 
-//BEAST HEALTH (EXPAND AS NEEDED)
+let getPlayerCrit = ranPlayerCrit(1,6)
 
-let easyBeastHealth = 100
+function playerAttack(){
+    if (getPlayerAttack == 4 && getPlayerCrit !=3){
+        console.log("You missed your attack.")
+    }
+    else if (getPlayerCrit == 3) {
+        console.log("You critically injure the beast, dealing " +getPlayerAttack*1.5+ " damage!")
+        enemyDamage += getPlayerAttack*1.5;
+    }
+    else {
+        console.log("You hit the beast, dealing " +getPlayerAttack+ " damage.")
+        enemyDamage += getPlayerAttack;
+    }
+}
+//EASY BEAST INFO
 
+let easyBeastHealth = 50
 
+function ranEasyBeastAttack(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); 
+}
+
+let getEasyBeastAttack = ranEasyBeastAttack(1, 5)
+
+function ranEasyBeastCrit(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); 
+}
+
+let getEasyBeastCrit = ranEasyBeastCrit(1,8)
+
+function easyBeastAttack(){
+    if (getEasyBeastAttack == 1 && getEasyBeastCrit !=4){
+        console.log("The beast lunges at you and misses.")
+    }
+    else if (getEasyBeastCrit == 3) {
+        console.log("The beast hits a weak point in your armor for " +getEasyBeastAttack*1.5+ " damage!")
+        playerDamage += getEasyBeastAttack*1.5;
+    }
+    else {
+        console.log("The beast strikes you, dealing " +getEasyBeastAttack+ " damage.")
+        playerDamage += getEasyBeastAttack;
+    }
+}
+
+//COUNTERS
+let turns = 0
+let experience = 0
+let playerDamage = 0
+let enemyDamage = 0
 
 //MAIN
 function firstBattle(){
-    
-    console.log("The beast charges at you, running on all fours. You easily dodge with the green orbs on your armor making you faster than the beast.")
-    
+    console.log("The beast charges at you, running on all fours. You easily dodge with the green orbs on your armor making you faster than the beast. Your blade whistles through the air as you swing at the beast.")
+    playerDamage = 0
+    enemyDamage = 0
+while (enemyDamage <= easyBeastHealth){
+    getPlayerAttack = ranPlayerAttack(4, 10)
+    getPlayerCrit = ranPlayerCrit(1,5)
+    getEasyBeastAttack = ranEasyBeastAttack(1, 5)
+    getEasyBeastCrit = ranEasyBeastCrit(1,8)
+    playerAttack()
+    easyBeastAttack()
 }
+console.log("You have defeated the beast.")
+turns += 1;
+}
+
 
 introStory();
 firstBattle();
