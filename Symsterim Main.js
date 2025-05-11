@@ -1,6 +1,5 @@
 //Allow user input 
-const readline = require('readline');
-
+const prompt = require('prompt-sync')();
 function introStory(){
     console.log("It's been 1,000 years since the land of Symsterim fell. Only a few cities that held artifacts from an ancient civilation were the only areas spared. The sun has stopped shining, leaving only the moon to illuminate the world that is left.\n You are Sindra, one of the warriors of the city of Sakura. Your armor is made from the beasts that prowl beyond the protective radius of the Ring of Hoba. This ring is worn by Queen Naomi at all times. Your sword is a long sword that contains a green orb in its hilt, granting you the power of the wind in each strike.\nLately, it seems as though the power of the Ring of Hoba is fading. The shadowy beasts have left their tracks closer than they've ever been. The queen has asked you to seek help from the nearby city of Medai. As you head to the Northern border of Sakura, you see one of the shadow monsters staring at you. \nThis is where your journey begins. With one deep breath, you draw your sword and step out of the protection of the barrier,\n")
 }
@@ -91,10 +90,11 @@ function beastAttack(){
 
 //COMBAT OPTIONS
 function playerChoice(){
-   console.log("Select a number:\n 1. Fight\n 2. Inventory\n 3. Block")
-let choice = prompt("Select a choice: ")
-
-    }
+    console.log("1. Fight\n2. Inventory\n3. Block")
+const choice = prompt("Select a number: ");
+console.log(`You picked ${choice}`)
+}
+ 
 
 
 //COUNTERS
