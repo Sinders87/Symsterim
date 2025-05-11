@@ -12,6 +12,9 @@ playerMaxAttack = 10
 playerMinCrit = 1
 playerMaxCrit = 6
 
+//PLAYER INVENTORY
+playerPotions = 10
+
 //Determine player's damage
 function ranPlayerAttack(min, max) {
   min = Math.ceil(min);
@@ -90,7 +93,7 @@ function beastAttack(){
 
 //COMBAT OPTIONS
 function playerChoice(){
-    console.log("1. Fight\n2. Inventory\n3. Block")
+    console.log("\n1. Fight\n2. Inventory\n3. Block")
  choice = parseInt(prompt("Select a number: "));
 
 while (choice < 1 || choice >3 ||isNaN(choice))
@@ -99,9 +102,16 @@ while (choice < 1 || choice >3 ||isNaN(choice))
 choice = parseInt(prompt("Select a number: "))
 }
 
+switch(choice){
+case 1: console.log("\nYou attack with your sword.")
+playerAttack()
+break;
+case 2: console.log("\nYou search your belongings.")
+break;
+case 3: console.log("\nYou raise your sword to block.")
+break;
+}
 
-console.log(typeof choice)
-console.log(`You picked ${choice}`) 
 
 }
  
@@ -117,7 +127,7 @@ let enemyDamage = 0
 
 //MAIN
 function easyBattle(){
-    console.log("The beast charges at you, running on all fours. You easily dodge with the green orbs on your armor making you faster than the beast. Your blade whistles through the air as you swing at the beast.\n")
+    console.log("The beast charges at you, running on all fours. The wind orbs in your armor make it easy to jump out of the way.")
     playerDamage = 0
     enemyDamage = 0
 while (enemyDamage <= easyBeastHealth){
@@ -128,9 +138,8 @@ while (enemyDamage <= easyBeastHealth){
     getBeastCrit = ranBeastCrit(beastMinCrit,beastMaxCrit)
 
     playerChoice()
-    //playerAttack()
-   // beastAttack()
-   enemyDamage = 150;
+    beastAttack()
+   ;
 }
 console.log("You have defeated the beast.")
 turns += 1;
