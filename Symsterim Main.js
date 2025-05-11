@@ -91,8 +91,18 @@ function beastAttack(){
 //COMBAT OPTIONS
 function playerChoice(){
     console.log("1. Fight\n2. Inventory\n3. Block")
-const choice = prompt("Select a number: ");
-console.log(`You picked ${choice}`)
+ choice = parseInt(prompt("Select a number: "));
+
+while (choice < 1 || choice >3 ||isNaN(choice))
+{
+     console.log("\n1. Fight\n2. Inventory\n3. Block")
+choice = parseInt(prompt("Select a number: "))
+}
+
+
+console.log(typeof choice)
+console.log(`You picked ${choice}`) 
+
 }
  
 
