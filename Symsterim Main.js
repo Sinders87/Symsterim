@@ -15,6 +15,15 @@ playerMaxCrit = 6
 //PLAYER INVENTORY
 playerPotions = 10
 
+
+function listInventory(){
+    console.log("1. Potions: "+playerPotions+ "")
+}
+
+function useInventory(){
+console.log("Select an item:\n1. Potions: "+playerPotions+"\n2. Back")
+}
+
 //Determine player's damage
 function ranPlayerAttack(min, max) {
   min = Math.ceil(min);
@@ -107,6 +116,7 @@ case 1: console.log("\nYou attack with your sword.")
 playerAttack()
 break;
 case 2: console.log("\nYou search your belongings.")
+useInventory()
 break;
 case 3: console.log("\nYou raise your sword to block.")
 break;
