@@ -13,15 +13,18 @@ playerMinCrit = 1
 playerMaxCrit = 6
 
 //PLAYER INVENTORY
-playerPotions = 10
+items = [
+    {name:'Potions', quantity: 10},
+    {name:'Placeholder', quantity:5}
+]
 
-
-function listInventory(){
-    console.log("1. Potions: "+playerPotions+ "")
-}
 
 function useInventory(){
-console.log("Select an item:\n1. Potions: "+playerPotions+"\n2. Back")
+    for (let i = 0; i < (Object.keys(items).length); i++){
+console.log(i+1, ".", items[i].name,":", items[i].quantity)
+    }
+
+console.log(Object.keys(items).length+1, ". Back")
 }
 
 //Determine player's damage
@@ -115,15 +118,36 @@ switch(choice){
 case 1: console.log("\nYou attack with your sword.")
 playerAttack()
 break;
+
 case 2: console.log("\nYou search your belongings.")
 useInventory()
+ invChoice = parseInt(prompt("Select a number: "));
+
+while (invChoice < 1 || invChoice >(Object.keys(items).length)+1 ||isNaN(invChoice)){
+     for (let i = 0; i < (Object.keys(items).length); i++){
+console.log(i+1, ".", items[i].name,":", items[i].quantity)
+    }
+    console.log(Object.keys(items).length+1, ". Back")
+     invChoice = parseInt(prompt("Select a number: "));
+}
+    if( invChoice <= (Object.keys(items).length))
+        {console.log("You used 1 " +items[invChoice-1].name)
+            items[invChoice-1].quantity -=1;
+        }
+        
+   else playerChoice();
+
 break;
+    
+
 case 3: console.log("\nYou raise your sword to block.")
+//Add 
 break;
 }
-
-
 }
+
+
+
  
 
 
